@@ -1,12 +1,31 @@
 ﻿<!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app>
 <head>
     <title>My Angular App</title>
     <meta charset="utf-8" />
 </head>
-<body>
-    
+<body ng-init="a=10;">
+
+    <input type="text" ng-model="x" />
+    <span ng-bind="x"></span>
+
+
     <script src="scripts/angular.min.js"></script>
     <script src="app/app.js"></script>
 </body>
 </html>
+
+<!-- Various directives
+ng-app
+ng-bind
+ng-init
+ng-show
+ng-hide
+ng-model
+ng-true-value
+ng-false-value
+ng-options
+ng-repeat
+ng-click
+ng-if
+-->
