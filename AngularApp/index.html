@@ -1,16 +1,14 @@
 ﻿<!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
     <title>My Angular App</title>
     <meta charset="utf-8" />
 </head>
-<body ng-init="a=10;">
+<body ng-controller="DepartmentController as vm">
 
-    <input type="text" ng-model="x" />
-    <span ng-bind="x"></span>
+    <input type="button" ng-click="vm.getDepartments()" value="Get Departments"/>
 
-
-    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular.js"></script>
     <script src="app/app.js"></script>
 </body>
 </html>
