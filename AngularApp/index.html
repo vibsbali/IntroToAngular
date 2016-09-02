@@ -21,10 +21,25 @@
 </table>
 
 
-<select ng-model="vm.selectedDepartment" ng-options="department.Id as department.Name for department in vm.departments">
-
-</select>
+    <!--Nesting Controller-->
+<div ng-controller="EmployeeController as empVm">
+    <select ng-model="vm.selectedDepartment"
+            ng-change="empVm.getEmployees()"
+            ng-options="department.Id as department.Name for department in vm.departments"></select>
     {{vm.selectedDepartment}}
+
+    <div>
+        <hr />
+        <p>Following Select List belongs to employees Controller</p>
+        {{vm.employees}}
+        <select ng-model="empVm.selectedEmployee"
+                ng-options="employee.Id as employee.Name for employee in empVm.employees">
+
+        </select>
+        {{empVm.selectedEmployee}}
+    </div>
+    
+</div>
 
 
 <script src="scripts/angular.js"></script>
