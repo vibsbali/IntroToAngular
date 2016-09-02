@@ -8,7 +8,18 @@
 
     <input type="button" ng-click="vm.getDepartments()" value="Get Departments"/>
 
-    <script src="scripts/angular.js"></script>
+<table>
+    <tr>
+        <td>Department Id</td>
+        <td>Name</td>
+    </tr>
+    <tr  ng-repeat="department in vm.departments">
+        <td ng-bind="department.Id"></td>
+        <td ng-bind="department.Name"></td>
+    </tr>
+</table>
+
+<script src="scripts/angular.js"></script>
     <script src="app/app.js"></script>
 </body>
 </html>

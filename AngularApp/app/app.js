@@ -6,7 +6,10 @@
         var vm = this;
 
         vm.getDepartments = function() {
-            alert("Hello");
+            $http.get("/api/department")
+                .then(function(response) {
+                    vm.departments = response.data;
+                });
         };
     });
 }())
