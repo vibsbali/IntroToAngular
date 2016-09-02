@@ -17,8 +17,9 @@
     app.controller("EmployeeController", function ($http) {
         var vm = this;
 
-        vm.getEmployees = function () {
-            $http.get("/api/employee")
+        vm.getEmployees = function (departmentId) {
+            alert(departmentId);
+            $http.get("/api/employee/GetEmployeesByDepartmentId?departmentId="+departmentId)
                 .then(function (response) {
                     vm.employees = response.data;
                 });

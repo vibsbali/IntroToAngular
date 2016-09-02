@@ -24,7 +24,7 @@
     <!--Nesting Controller-->
 <div ng-controller="EmployeeController as empVm">
     <select ng-model="vm.selectedDepartment"
-            ng-change="empVm.getEmployees()"
+            ng-change="empVm.getEmployees(vm.selectedDepartment)"
             ng-options="department.Id as department.Name for department in vm.departments"></select>
     {{vm.selectedDepartment}}
 
