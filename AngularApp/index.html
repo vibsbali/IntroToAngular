@@ -2,22 +2,30 @@
 <html ng-app="myApp">
 <head>
     <title>My Angular App</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body ng-controller="DepartmentController as vm">
 
     <input type="button" ng-click="vm.getDepartments()" value="Get Departments"/>
 
-<table>
+<table class="table table-bordered">
     <tr>
         <td>Department Id</td>
         <td>Name</td>
     </tr>
-    <tr  ng-repeat="department in vm.departments">
+    <tr ng-repeat="department in vm.departments">
         <td ng-bind="department.Id"></td>
         <td ng-bind="department.Name"></td>
     </tr>
 </table>
+
+
+<select ng-model="vm.selectedDepartment" ng-options="department.Id as department.Name for department in vm.departments">
+
+</select>
+    {{vm.selectedDepartment}}
+
 
 <script src="scripts/angular.js"></script>
     <script src="app/app.js"></script>
