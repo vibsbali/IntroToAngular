@@ -12,4 +12,16 @@
                 });
         };
     });
+
+
+    app.controller("EmployeeController", function ($http) {
+        var vm = this;
+
+        vm.getDepartments = function () {
+            $http.get("/api/employee")
+                .then(function (response) {
+                    vm.employees = response.data;
+                });
+        };
+    });
 }())
