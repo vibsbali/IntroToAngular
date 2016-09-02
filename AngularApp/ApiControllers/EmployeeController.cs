@@ -16,9 +16,15 @@ namespace AngularApp.ApiControllers
         };
 
         [HttpGet]
-        public IEnumerable<Employee> GetDepartments()
+        public IEnumerable<Employee> GetEmployees()
         {
             return employees;
+        }
+
+        [HttpGet]
+        public IEnumerable<Employee> GetEmployeesByDepartmentId(int departmentId)
+        {
+            return employees.FindAll(e => e.DepartmentId == departmentId);
         }
     }
 
