@@ -33,7 +33,7 @@
                 <td>Gender</td>
                 <td>Department</td>
             </tr>
-            <tr ng-repeat="employee in empVm.employees | filter:search">
+            <tr ng-repeat="employee in empVm.employees | filter:search | orderBy:'Name'">
                 <td ng-bind="employee.Id"></td>
                 <td ng-bind="employee.Name"></td>
                 <td ng-bind="employee.Salary"></td>
