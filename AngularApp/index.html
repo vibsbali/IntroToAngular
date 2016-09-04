@@ -6,7 +6,7 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body ng-controller="DepartmentController as vm">
-
+     
     <input type="button" ng-click="vm.getDepartments()" value="Get Departments" />
 
     <!--Nesting Controller-->
@@ -24,7 +24,7 @@
                     ng-options="employee.Id as employee.Name for employee in empVm.employees"></select>
             {{empVm.selectedEmployee}}
         </div>
-
+        <input type="text" ng-model="search" />
         <table class="table table-bordered">
             <tr>
                 <td>Employee Id</td>
@@ -33,7 +33,7 @@
                 <td>Gender</td>
                 <td>Department</td>
             </tr>
-            <tr ng-repeat="employee in empVm.employees">
+            <tr ng-repeat="employee in empVm.employees | filter:search">
                 <td ng-bind="employee.Id"></td>
                 <td ng-bind="employee.Name"></td>
                 <td ng-bind="employee.Salary"></td>
