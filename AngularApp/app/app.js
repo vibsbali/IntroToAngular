@@ -16,6 +16,7 @@
 
     app.controller("EmployeeController", function ($http) {
         var vm = this;
+        vm.orderBy = true;
 
         vm.getEmployees = function () {
             $http.get("/api/employee")
@@ -23,6 +24,11 @@
                     vm.employees = response.data;
                 });
         };
+
+        vm.Sort = function(value) {
+            vm.key = value;
+            vm.orderBy = !vm.orderBy;
+        }
 
         vm.getEmployeesByDepartmentId = function (departmentId) {
             $http.get("/api/employee/GetEmployeesByDepartmentId?departmentId=" + departmentId)

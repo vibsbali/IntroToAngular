@@ -27,13 +27,13 @@
         <input type="text" ng-model="search" />
         <table class="table table-bordered">
             <tr>
-                <td>Employee Id</td>
-                <td>Name</td>
-                <td>Salary</td>
-                <td>Gender</td>
-                <td>Department</td>
+                <td ng-click="empVm.Sort('Id')">Employee Id</td>
+                <td ng-click="empVm.Sort('Name')">Name</td>
+                <td ng-click="empVm.Sort('Salary')">Salary</td>
+                <td ng-click="empVm.Sort('Gender')">Gender</td>
+                <td ng-click="empVm.Sort('DepartmentId')">Department</td>
             </tr>
-            <tr ng-repeat="employee in empVm.employees | filter:search | orderBy:'Name'">
+            <tr ng-repeat="employee in empVm.employees | filter:search | orderBy:empVm.key:empVm.orderBy">
                 <td ng-bind="employee.Id"></td>
                 <td ng-bind="employee.Name"></td>
                 <td ng-bind="employee.Salary"></td>
