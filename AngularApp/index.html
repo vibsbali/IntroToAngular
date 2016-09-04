@@ -33,7 +33,8 @@
                 <td ng-click="empVm.Sort('Gender')">Gender</td>
                 <td ng-click="empVm.Sort('DepartmentId')">Department</td>
             </tr>
-            <tr ng-repeat="employee in empVm.employees | filter:search | orderBy:empVm.key:empVm.orderBy">
+            <!--<tr ng-repeat="employee in empVm.employees | filter:search | orderBy:empVm.key:empVm.orderBy">-->
+            <tr dir-paginate="employee in empVm.employees | filter:search | orderBy:empVm.key:empVm.orderBy | itemsPerPage:2">
                 <td ng-bind="employee.Id"></td>
                 <td ng-bind="employee.Name"></td>
                 <td ng-bind="employee.Salary"></td>
@@ -41,7 +42,7 @@
                 <td ng-bind="employee.DepartmentId"></td>
             </tr>
         </table>
-
+        <dir-pagination-controls max-size="3" direction-links="true" boundary-links="true"></dir-pagination-controls>
     </div>
 
 
