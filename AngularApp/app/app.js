@@ -1,6 +1,6 @@
 ﻿"use strict";
 (function () {
-    var app = angular.module("myApp", []);
+    var app = angular.module("myApp", ['angularUtils.directives.dirPagination']);
 
     app.controller("DepartmentController", function($http) {
         var vm = this;
