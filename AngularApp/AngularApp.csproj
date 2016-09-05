@@ -134,7 +134,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="appCalculator\app.js" />
+    <Content Include="appCalculator\appFactory.js" />
     <Content Include="app\app.js" />
+    <Content Include="calculator.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

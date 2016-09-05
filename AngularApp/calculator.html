@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html ng-app="myCalc">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body ng-controller="myCalcController as vm">
+    <label>First Number</label>
+<input type="text" ng-model="firstInteger"/>
+    <label>Second Number</label>
+<input type="text" ng-model="secondInteger"/>
+<label>Result</label>
+    <span ng-bind="vm.result"></span>
+<button ng-click="vm.add(firstInteger, secondInteger)">Add</button>
+
+<script src="scripts/angular.js"></script>
+    <script src="appCalculator/app.js"></script>
+</body>
+</html>
