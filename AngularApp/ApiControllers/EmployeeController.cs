@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
 namespace AngularApp.ApiControllers
@@ -30,13 +31,22 @@ namespace AngularApp.ApiControllers
 
         };
 
-        [HttpGet]
         public IEnumerable<Employee> GetEmployees()
         {
             return employees;
         }
 
-        [HttpGet]
+        public IHttpActionResult GetDepartments(int id)
+        {
+            var employee = employees.SingleOrDefault(e => e.Id == id);
+            if (employee == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(employee);
+        }
+
         public IEnumerable<Employee> GetEmployeesByDepartmentId(int departmentId)
         {
             return employees.FindAll(e => e.DepartmentId == departmentId);

@@ -1,5 +1,6 @@
 ﻿using AngularApp.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
 namespace AngularApp.ApiControllers
@@ -15,10 +16,22 @@ namespace AngularApp.ApiControllers
             new Department { Id = 3071, Name = "PDG1", HeadOfDepartment = "MarkLong", Gender = "Female" }
         };
 
-        [HttpGet]
-        public IEnumerable<Department> GetDepartments()
+        public IHttpActionResult GetDepartments()
         {
-            return departments;
+            return Ok(departments);
         }
+
+        public IHttpActionResult GetDepartments(int id)
+        {
+            var department = departments.SingleOrDefault(d => d.Id == id);
+            if (department == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(department);
+        }
+
+
     }
 }
